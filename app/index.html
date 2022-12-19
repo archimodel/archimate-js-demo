@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>archimate-js modeler demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/6e2ead85e6.js" crossorigin="anonymous"></script>
+  <style type="text/css">
+    html, body, #canvas {
+      font-family: 'Quicksand';
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .navbar .nav-item .dropdown-menu{ display: none; }
+    .navbar .nav-item:hover .nav-link{   }
+    .navbar .nav-item:hover .dropdown-menu{ display: block; bottom: 40px; }
+    .navbar .nav-item .dropdown-menu{ margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar fixed-bottom navbar-expand bg-light">
+  <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link btn" role="button" id="js-new-model" data-toggle="tooltip" data-placement="top" title="New model"> <i class="fas fa-file-medical fa-lg"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" role="button" id="js-import-model" data-toggle="tooltip" data-placement="top" title="Import model"> <i class="fas fa-file-upload fa-lg"></i> </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn" role="button" id="js-export-model-xml" data-toggle="tooltip" data-placement="top" title="Export model XML"> <i class="fas fa-file-code fa-lg"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" role="button" id="js-export-model-svg" data-toggle="tooltip" data-placement="top" title="Export model SVG"> <i class="fas fa-file-image fa-lg"></i> </a>
+        </li>
+
+        <!-- <li class="nav-item dropup">
+          <a class="nav-link btn" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa-solid fa-folder-tree"></i> </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown10">
+            <li><a class="dropdown-item" role="button" id="js-export-model-xml">Export model as XML</a></li>
+            <li><a class="dropdown-item" role="button" id="js-export-model-svg">Export model as SVG</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" role="button" id="js-import-model">Import model</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" role="button" id="js-new-model">New model</a></li>
+          </ul>
+        </li> -->
+
+        <li class="nav-item">
+          <a class="nav-link btn" role="button" data-bs-toggle="modal" data-bs-target="#js-modal-keyboard-help" data-toggle="tooltip" data-placement="top" title="Keyboard shortcuts"> <i class="fa-solid fa-keyboard fa-lg"></i> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn" role="button" id="js-toggle-fullscreen" data-toggle="tooltip" data-placement="top" title="Fullscreen"> <i class="fa-solid fa-maximize fa-lg"></i> </a>
+        </li>
+      </ul>
+      <span class="h5 text-right">archimate-js modeler demo</span>
+  </div>
+</nav>
+
+<div id="canvas"></div>
+
+<div class="modal fade" id="js-modal-keyboard-help" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Keybord Shortcuts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <table>
+        <tbody>
+          <tr>
+            <td>Undo</td>
+            <td class="binding">⌘ + Z</td>
+          </tr>
+          <tr>
+            <td>Redo</td>
+            <td class="binding">⌘ + ⇧ + Z</td>
+          </tr>
+          <tr>
+            <td>Select All</td>
+            <td class="binding">⌘ + A</td>
+          </tr>
+         <tr>
+            <td>Zooming</td>
+            <td class="binding">ctrl + Scrolling</td>
+          </tr>
+          <tr>
+            <td>Scrolling (Vertical)</td>
+            <td class="binding">⌥ + Scrolling</td>
+          </tr>
+          <tr>
+            <td>Scrolling (Horizontal)</td>
+            <td class="binding">⌥ + ⇧ + Scrolling</td>
+          </tr>
+          <tr>
+            <td>Direct Editing</td>
+            <td class="binding">E</td>
+          </tr>
+          <tr>
+            <td>Hand Tool</td>
+            <td class="binding">H</td>
+          </tr>
+          <tr>
+            <td>Lasso Tool</td>
+            <td class="binding">L</td>
+          </tr>
+          <tr>
+            <td>Space Tool</td>
+            <td class="binding">S</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "archimate-js-demo",
+  "version": "0.0.1",
+  "description": "A simple modeler built with archimate-js",
+  "scripts": {
+    "all": "run-s lint build",
+    "build": "webpack",
+    "dev": "run-p build:watch serve",
+    "build:watch": "webpack -w",
+    "serve": "serve public",
+    "lint": "eslint .",
+    "start": "run-s dev"
+  },
+  "devDependencies": {
+    "@sentry/webpack-plugin": "^1.15.1",
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "^5.2.4",
+    "eslint": "^7.26.0",
+    "eslint-plugin-bpmn-io": "^0.12.0",
+    "file-loader": "^6.2.0",
+    "npm-run-all": "^4.1.5",
+    "raw-loader": "^4.0.2",
+    "serve": "^11.3.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.0-beta1",
+    "archimate-js": "file:../"
+  }
+}
