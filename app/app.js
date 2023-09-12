@@ -3,6 +3,7 @@ import * as bootstrap from 'bootstrap';
 
 import 'archimate-js/assets/archimate-js.css';
 import Modeler from 'archimate-js/lib/Modeler';
+import Viewer from 'archimate-js/lib/Viewer';
 
 const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]');
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
@@ -12,13 +13,24 @@ var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
   return new bootstrap.Dropdown(dropdownToggleEl)
 })
 
-// modeler instance
-var modeler = new Modeler({
-  container: '#canvas',
-  keyboard: {
-    bindTo: window,
-  }
-});
+const viewerMode = false;
+
+var modeler;
+if (viewerMode) {
+  modeler = new Viewer({
+    container: '#canvas',
+    keyboard: {
+      bindTo: window,
+    }
+  });
+} else {
+  modeler = new Modeler({
+    container: '#canvas',
+    keyboard: {
+      bindTo: window,
+    }
+  });
+}
 
 /* screen interaction */
 function enterFullscreen(element) {
@@ -114,7 +126,9 @@ function newModel() {
 }
 
 // Create new model to show on canvas !
-newModel();
+if (!viewerMode) {
+ newModel();
+}
 
 function openFile(file) {
   // check file api availability
@@ -158,6 +172,7 @@ function openModel(xml) {
         return console.error('could not import archimate model', err);
       }
    });
+   //viewer.get('canvas').zoom('fit-viewport');
 }
 
 function getSVGfromModel() {
