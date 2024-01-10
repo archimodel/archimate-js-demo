@@ -1,0 +1,3 @@
+[submodule "archimate-js"]
+	path = archimate-js
+	url = https://github.com/archimodel/archimate-js.git

@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.0-beta1",
-    "archimate-js": "file:../archimate-js"
+    "archimate-js": "file:./archimate-js"
   }
 }
